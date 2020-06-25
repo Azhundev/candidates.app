@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="66506bb5-60b3-4000-b9e4-f5e7ff6195c5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="printErrorStackTraces" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadAnnotationsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+        <option name="importAutomatically" value="true" />
+        <option name="lookForNested" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bjMQs5x3uZVUNWZzmAJoIVfz9D" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66506bb5-60b3-4000-b9e4-f5e7ff6195c5" name="Default Changelist" comment="" />
+      <created>1589141036304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589141036304</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="23" key="#Project_Structure" timestamp="1589141321811">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="23" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1589141321811" />
+    <state x="463" y="82" key="FileChooserDialogImpl" timestamp="1589141671651">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="82" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589141671651" />
+    <state x="348" y="63" key="NewModule_or_Project.wizard" timestamp="1589141673044">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="348" y="63" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1589141673044" />
+    <state x="65" y="66" key="new project wizard" timestamp="1589141658766">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="66" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1589141658766" />
+  </component>
+</project>
