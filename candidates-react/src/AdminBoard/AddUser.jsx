@@ -11,7 +11,7 @@ class AddUser extends React.Component {
         this.state = {
             username: '',
             password: '',
-            roles: [],
+            roles: [''],
             active: '',
             submitted: false
         };
@@ -19,7 +19,6 @@ class AddUser extends React.Component {
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
-
 
 
     onChange(e) {
@@ -64,7 +63,7 @@ class AddUser extends React.Component {
                     </div>
                     <div className="form-group">
                         <label>Role</label>
-                        <select className="form-control form-control-lg" name="roles" value={roles} onChange={this.onChange}>
+                        <select name="roles" value={roles} onChange={this.onChange} multiple={true} >
                             <option value="">Select Role</option>
                             <option value="ADMIN">Admin</option>
                             <option value="USER">User</option>
