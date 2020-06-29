@@ -13,8 +13,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 @CrossOrigin
+@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 public class TokenController {
 
     @Autowired

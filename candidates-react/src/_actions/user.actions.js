@@ -57,7 +57,7 @@ function addCandidate(candidate) {
             );
 
         function request(candidate) { return { type: userConstants.ADD_CANDIDATE_REQUEST, candidate } }
-        function success() { return { type: userConstants.ADD_CANDIDATE_SUCCESS } }
+        function success(candidate) { return { type: userConstants.ADD_CANDIDATE_SUCCESS, candidate } }
         function failure(error) { return { type: userConstants.ADD_CANDIDATE_FAILURE, error } }
     }
 }

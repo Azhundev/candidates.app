@@ -25,18 +25,18 @@ function addCandidate(params) {
 }
 
 function updateCandidate(id, params) {
-    return fetchWrapper.put(`${baseUrl}/api/user/${id}`, params);
+    return fetchWrapper.put(`${baseUrl}/api/board/${id}`, params);
 };
 
 function deleteCandidate(id) {
-    return fetchWrapper.delete(`${baseUrl}//api/user/${id}`);
+    return fetchWrapper.delete(`${baseUrl}//api/board/${id}`);
 }
 
 function getCandidate(id) {
-    return fetchWrapper.get(`${baseUrl}//api/user/${id}`);
+    return fetchWrapper.get(`${baseUrl}//api/board/${id}`);
 }
 
 function getAllCandidates() {
-    return fetchWrapper.get(`${baseUrl}//api/user/all`);
+    return fetchWrapper.get(`${baseUrl}//api/board/all`);
 }
 

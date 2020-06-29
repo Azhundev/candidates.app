@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/board")
 @CrossOrigin
+@RequestMapping("api/board")
 public class CandidateController {
 
     @Autowired

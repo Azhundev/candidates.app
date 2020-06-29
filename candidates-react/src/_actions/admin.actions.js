@@ -16,8 +16,9 @@ function addUser(user) {
         adminService.addUser(user)
             .then(
                 user => {
-                    dispatch(success('User added'));
+                    dispatch(success());
                     history.push('/');
+                    dispatch(alertActions.success('User Added'))
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -26,7 +27,7 @@ function addUser(user) {
             );
 
         function request(user) { return { type: adminConstants.ADD_USER_REQUEST, user } }
-        function success() { return { type: adminConstants.ADD_USER_SUCCESS } }
+        function success(user) { return { type: adminConstants.ADD_USER_SUCCESS, user } }
         function failure(error) { return { type: adminConstants.ADD_USER_FAILURE, error } }
     }
 }

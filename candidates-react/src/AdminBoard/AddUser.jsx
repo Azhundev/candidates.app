@@ -9,9 +9,10 @@ class AddUser extends React.Component {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
             password: '',
-            roles: '',
+            roles: [],
+            active: '',
             submitted: false
         };
 
@@ -30,26 +31,27 @@ class AddUser extends React.Component {
 
         this.setState({ submitted: true });
         const newUser = {
-            email: this.state.email,
+            username: this.state.username,
             password: this.state.password,
-            roles: this.state.roles
+            roles: this.state.roles,
+            active: true
         };
         const { dispatch } = this.props;
-        if(newUser) {
+        if (newUser) {
             dispatch(adminActions.addUser(newUser))
         }
     }
 
     render() {
-        const { email, password, roles, submitted } = this.state;
+        const { username, password, roles, submitted } = this.state;
         return (
             <div className="col-lg-8 offset-lg-2">
                 <h2>Add User</h2>
                 <form name="form" onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Email</label>
-                        <input type="email" name="email" value={email} onChange={this.onChange} className={'form-control' + (submitted && !email ? ' is-invalid' : '')} />
-                        {submitted && !email &&
+                        <input type="email" name="username" value={username} onChange={this.onChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')} />
+                        {submitted && !username &&
                             <div className="invalid-feedback">Email is required</div>
                         }
                     </div>
@@ -64,9 +66,12 @@ class AddUser extends React.Component {
                         <label>Role</label>
                         <select className="form-control form-control-lg" name="roles" value={roles} onChange={this.onChange}>
                             <option value="">Select Role</option>
-                            <option value="Admin">Admin</option>
-                            <option value="User">User</option>
+                            <option value="ADMIN">Admin</option>
+                            <option value="USER">User</option>
                         </select>
+                        {submitted && !roles &&
+                            <div className="invalid-feedback">Role is required</div>
+                        }
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">

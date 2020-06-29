@@ -7,7 +7,9 @@ export function user(state = {}, action) {
         adding: true
       };
     case userConstants.ADD_CANDIDATE_SUCCESS:
-      return {};
+      return {
+        items: action.candidate
+      };
     case userConstants.ADD_CANDIDATE_FAILURE:
       return {
         error: action.error

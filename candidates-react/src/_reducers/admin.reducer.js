@@ -7,7 +7,9 @@ export function admin(state = {}, action) {
         adding: true
       };
     case adminConstants.ADD_USER_SUCCESS:
-      return {};
+      return {
+        items: action.user
+      };
     case adminConstants.ADD_USER_FAILURE:
       return {
         error: action.error

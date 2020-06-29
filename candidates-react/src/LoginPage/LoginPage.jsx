@@ -30,7 +30,7 @@ class LoginPage extends React.Component {
         this.setState({ submitted: true });
         const { username, password } = this.state;
         const { dispatch } = this.props;
-        
+
         if (username && password) {
             dispatch(userActions.login(username, password));
         }
@@ -48,7 +48,7 @@ class LoginPage extends React.Component {
                 <form name="form" onSubmit={this.onSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
                         <label htmlFor="email">Email</label>
-                        <input type="email" className="form-control" name="username" value={username} onChange={this.onChange} autoFocus/>
+                        <input type="email" className="form-control" name="username" value={username} onChange={this.onChange} autoFocus />
                         {submitted && !username &&
                             <div className="help-block">Email is required</div>
                         }
