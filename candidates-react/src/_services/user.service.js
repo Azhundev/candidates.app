@@ -29,14 +29,14 @@ function updateCandidate(id, params) {
 };
 
 function deleteCandidate(id) {
-    return fetchWrapper.delete(`${baseUrl}//api/board/${id}`);
+    return fetchWrapper.delete(`${baseUrl}/api/board/${id}`);
 }
 
 function getCandidate(id) {
-    return fetchWrapper.get(`${baseUrl}//api/board/${id}`);
+    return fetchWrapper.get(`${baseUrl}/api/board/${id}`);
 }
 
 function getAllCandidates() {
-    return fetchWrapper.get(`${baseUrl}//api/board/all`);
+    return fetchWrapper.get(`${baseUrl}/api/board/all`);
 }
 

@@ -11,7 +11,7 @@ class AddUser extends React.Component {
         this.state = {
             username: '',
             password: '',
-            roles: [''],
+            roles: [],
             active: '',
             submitted: false
         };

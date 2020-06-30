@@ -28,16 +28,16 @@ export function admin(state = {}, action) {
         error: action.error
       };
 
-      case adminConstants.DELETE_USER_REQUEST:
-        return {
-          loading: true
-        };
-      case adminConstants.DELETE_USER_SUCCESS:
-        return {};
-      case adminConstants.DELETE_USER_FAILURE:
-        return {
-          error: action.error
-        };
+    case adminConstants.DELETE_USER_REQUEST:
+      return {
+        loading: true
+      };
+    case adminConstants.DELETE_USER_SUCCESS:
+      return {};
+    case adminConstants.DELETE_USER_FAILURE:
+      return {
+        error: action.error
+      };
 
     default:
       return state
