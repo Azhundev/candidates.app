@@ -17,8 +17,8 @@ export const fetchWrapper = {
 };
 
 async function login(url, body) {
-    const requestOptions = {        
-        method: 'POST',        
+    const requestOptions = {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
     };
@@ -45,9 +45,7 @@ async function get(url) {
     const requestOptions = {
         method: 'GET',
         mode: 'no-cors',
-        headers: {            
-            ...authHeader()
-        },
+        headers: authHeader()
     };
     return fetch(url, requestOptions).then(handleResponse);
 }
@@ -57,8 +55,8 @@ async function post(url, body) {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json',            
-            ...authHeader()
+            ...authHeader(),
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(body)
     };
@@ -70,9 +68,9 @@ async function put(url, body) {
         method: 'PUT',
         mode: 'no-cors',
         headers: {
-             'Content-Type': 'application/json',
-              ...authHeader()
-             },
+            ...authHeader(),
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(body)
     };
     return fetch(url, requestOptions).then(handleResponse);

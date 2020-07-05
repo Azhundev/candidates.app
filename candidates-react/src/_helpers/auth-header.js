@@ -1,4 +1,4 @@
-import { fetchWrapper } from './fetch-wrapper';
+import { fetchWrapper } from '../_helpers';
 
 export function authHeader() {
     // return authorization header with jwt token

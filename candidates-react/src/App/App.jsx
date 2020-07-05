@@ -1,9 +1,8 @@
 import React from 'react';
-import { Router, Route, Link, Redirect } from 'react-router-dom';
+import { Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history, Role, fetchWrapper } from '../_helpers';
-import { PrivateRoute } from '../_components';
 import { UsersBoard, AddUser } from '../AdminBoard';
 import { LoginPage } from '../LoginPage';
 import { CandidatesBoard } from '../CandidatesBoard';
@@ -40,7 +39,7 @@ class App extends React.Component {
     }
 
     render() {
-        const { currentUser, isAdmin, isUser } = this.state;
+        const { currentUser, isAdmin } = this.state;
         const { alert } = this.props;
         return (
             <div className="jumbotron">
@@ -55,13 +54,15 @@ class App extends React.Component {
                                 {currentUser &&
                                     <nav className="navbar navbar-expand navbar-dark bg-dark">
                                         <div className="navbar-nav">
-                                            <Link to="/usersboard" className="nav-item nav-link">Users Board</Link>
-                                            <Link to="/authenticate" className="nav-item nav-link">Login Page</Link>
-                                            <Link to="/adduser" className="nav-item nav-link">Add User</Link>
+                                            {isAdmin && <Link to="/usersboard" className="nav-item nav-link">Users Board</Link>}
+                                            {isAdmin && <Link to="/adduser" className="nav-item nav-link">Add User</Link>}
                                             <Link to="/candidatesboard" className="nav-item nav-link">Candidates Board</Link>
-                                            <a href="#" onClick={this.logout} className="nav-item nav-link">Logout</a>
+                                            <a href=" " onClick={this.logout} className="nav-item nav-link">Logout</a>
                                         </div>
                                     </nav>
+                                }
+                                {!currentUser &&
+                                    <Link to="/authenticate" className="nav-item nav-link">Login Page</Link>
                                 }
                                 <div className="jumbotron">
                                     <div className="container">

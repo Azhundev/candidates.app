@@ -11,10 +11,11 @@ class UsersBoard extends React.Component {
     }
 
     render() {
-        const { user, users } = this.props;        
+        const { currentUser, users } = this.props;       
+                    
         return (
             <div className="col-md-6 col-md-offset-3">
-                {<h1>Hi {user.username}!</h1>}
+                {<h1>Hi {currentUser.username}!</h1>}
                 <p>You're logged in with React & JWT!!</p>
                 <h3>Users from secure api end point:</h3>
                 {users.loading && <em>Loading users...</em>}
@@ -38,9 +39,9 @@ class UsersBoard extends React.Component {
 
 function mapStateToProps(state) {
     const { users, authentication } = state;
-    const { user } = authentication;
+    const { currentUser } = authentication;
     return {
-        user,
+        currentUser,
         users
     };
 }

@@ -32,7 +32,7 @@ class AddUser extends React.Component {
         const newUser = {
             username: this.state.username,
             password: this.state.password,
-            roles: this.state.roles,
+            roles: [this.state.roles],
             active: true
         };
         const { dispatch } = this.props;
