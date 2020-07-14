@@ -35,8 +35,7 @@ function logout() {
 
 function get(url) {
     const requestOptions = {
-        method: 'GET',
-        mode: 'no-cors',
+        method: 'GET',        
         headers: authHeader()
     };
     return fetch(url, requestOptions).then(handleResponse);
