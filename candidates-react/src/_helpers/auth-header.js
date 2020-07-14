@@ -1,10 +1,9 @@
-import { fetchWrapper } from '../_helpers';
-
 export function authHeader() {
     // return authorization header with jwt token
-    const currentUser = fetchWrapper.currentUserValue;
-    if (currentUser && currentUser.token) {
-        return { Authorization: `Bearer ${currentUser.token}` };
+    let user = JSON.parse(localStorage.getItem('user'));
+
+    if (user && user.jwt) {
+        return { Authorization: `Bearer ${user.jwt}` };
     } else {
         return {};
     }

@@ -1,10 +1,5 @@
 import { authHeader, handleResponse } from '../_helpers';
 
-import { BehaviorSubject } from 'rxjs';
-
-const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
-
-
 export const fetchWrapper = {
     login,
     logout,
@@ -12,11 +7,10 @@ export const fetchWrapper = {
     post,
     put,
     delete: _delete,
-    currentUser: currentUserSubject.asObservable(),
-    get currentUserValue() { return currentUserSubject.value }
+    
 };
 
-async function login(url, body) {
+function login(url, body) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -27,21 +21,19 @@ async function login(url, body) {
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            currentUserSubject.next(user);
+            localStorage.setItem('user', JSON.stringify(user));
 
             return user;
         });
 
 }
 
-async function logout() {
+function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    currentUserSubject.next(null);
+    localStorage.removeItem('user');   
 }
 
-async function get(url) {
+function get(url) {
     const requestOptions = {
         method: 'GET',
         mode: 'no-cors',
@@ -50,10 +42,9 @@ async function get(url) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-async function post(url, body) {
+function post(url, body) {
     const requestOptions = {
-        method: 'POST',
-        mode: 'no-cors',
+        method: 'POST',        
         headers: {
             ...authHeader(),
             'Content-Type': 'application/json'
@@ -63,10 +54,9 @@ async function post(url, body) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-async function put(url, body) {
+function put(url, body) {
     const requestOptions = {
-        method: 'PUT',
-        mode: 'no-cors',
+        method: 'PUT',        
         headers: {
             ...authHeader(),
             'Content-Type': 'application/json'
@@ -77,10 +67,9 @@ async function put(url, body) {
 }
 
 // prefixed with underscored because delete is a reserved word in javascript
-async function _delete(url) {
+function _delete(url) {
     const requestOptions = {
-        method: 'DELETE',
-        mode: 'no-cors',
+        method: 'DELETE',        
         headers: authHeader()
     };
     return fetch(url, requestOptions).then(handleResponse);

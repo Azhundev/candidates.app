@@ -12,34 +12,21 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            currentUser: null,
-            isAdmin: false,
-            isUser: false
-        };
-
         const { dispatch } = this.props;
         history.listen((location, action) => {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
     }
-
-    componentDidMount() {
-        fetchWrapper.currentUser.subscribe(x => this.setState({
-            currentUser: x,
-            isAdmin: x && x.roles === Role.Admin,
-            isUser: x && x.roles === Role.User
-        }));
-    }
-
+    
+    
     logout() {
         fetchWrapper.logout();
         history.push('/authenticate');
     }
 
     render() {
-        const { currentUser, isAdmin } = this.state;
+        
         const { alert } = this.props;
         return (
             <div className="jumbotron">
@@ -51,19 +38,19 @@ class App extends React.Component {
                         }
                         <Router history={history}>
                             <div>
-                                {currentUser &&
+                                
                                     <nav className="navbar navbar-expand navbar-dark bg-dark">
                                         <div className="navbar-nav">
-                                            {isAdmin && <Link to="/usersboard" className="nav-item nav-link">Users Board</Link>}
-                                            {isAdmin && <Link to="/adduser" className="nav-item nav-link">Add User</Link>}
+                                            <Link to="/usersboard" className="nav-item nav-link">Users Board</Link>
+                                            <Link to="/adduser" className="nav-item nav-link">Add User</Link>
                                             <Link to="/candidatesboard" className="nav-item nav-link">Candidates Board</Link>
                                             <a href=" " onClick={this.logout} className="nav-item nav-link">Logout</a>
                                         </div>
                                     </nav>
-                                }
-                                {!currentUser &&
+                                
+                                 
                                     <Link to="/authenticate" className="nav-item nav-link">Login Page</Link>
-                                }
+                                
                                 <div className="jumbotron">
                                     <div className="container">
                                         <div className="row">
