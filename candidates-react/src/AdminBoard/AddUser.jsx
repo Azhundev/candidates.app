@@ -63,7 +63,7 @@ class AddUser extends React.Component {
                     </div>
                     <div className="form-group">
                         <label>Role</label>
-                        <select name="roles" value={roles} onChange={this.onChange} multiple={true} >
+                        <select name="roles" value={roles} onChange={this.onChange}>
                             <option value="">Select Role</option>
                             <option value="ADMIN">Admin</option>
                             <option value="USER">User</option>
