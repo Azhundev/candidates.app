@@ -6,31 +6,31 @@ import { connect } from 'react-redux';
 import { adminActions } from '../_actions';
 
 class UsersBoard extends React.Component {
+
     componentDidMount() {
         this.props.dispatch(adminActions.getAllUsers());
     }
 
     render() {
-        const { users } = this.props;       
-                    
+        const { user, admin } = this.props;
+
         return (
             <div className="col-md-6 col-md-offset-3">
-                
-                <p>You're logged in with React & JWT!!</p>
+                <h1>Hi {user.username}!</h1>
                 <h3>Users from secure api end point:</h3>
-                {users.loading && <em>Loading users...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-                {users.items &&
+                {admin.isFetching && <em>Loading users...</em>}
+                {admin.error && <span className="text-danger">ERRR: {admin.error}</span>}
+                {admin.items &&
                     <ul>
-                        {users.items.map((user, index) =>
+                        {admin.items.map((user, index) =>
                             <li key={user.id}>
-                                {user.username}
+                                {user.username + ' ' + user.roles.name}
                             </li>
                         )}
                     </ul>
                 }
                 <p>
-                    <Link to="/login">Logout</Link>
+                    <Link to="/authenticate">Logout</Link>
                 </p>
             </div>
         );
@@ -38,11 +38,11 @@ class UsersBoard extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
+    const { admin, authentication } = state;
     const { user } = authentication;
     return {
         user,
-        users
+        admin
     };
 }
 

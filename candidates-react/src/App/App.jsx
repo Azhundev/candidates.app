@@ -1,8 +1,9 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { history, Role, fetchWrapper } from '../_helpers';
+import { history, fetchWrapper } from '../_helpers';
+import { PrivateRoute } from '../_components';
 import { UsersBoard, AddUser } from '../AdminBoard';
 import { LoginPage } from '../LoginPage';
 import { CandidatesBoard } from '../CandidatesBoard';
@@ -18,15 +19,15 @@ class App extends React.Component {
             dispatch(alertActions.clear());
         });
     }
-    
-    
+
+
     logout() {
         fetchWrapper.logout();
         history.push('/authenticate');
     }
 
     render() {
-        
+
         const { alert } = this.props;
         return (
             <div className="jumbotron">
@@ -38,30 +39,11 @@ class App extends React.Component {
                         }
                         <Router history={history}>
                             <div>
-                                
-                                    <nav className="navbar navbar-expand navbar-dark bg-dark">
-                                        <div className="navbar-nav">
-                                            <Link to="/usersboard" className="nav-item nav-link">Users Board</Link>
-                                            <Link to="/adduser" className="nav-item nav-link">Add User</Link>
-                                            <Link to="/candidatesboard" className="nav-item nav-link">Candidates Board</Link>
-                                            <a href=" " onClick={this.logout} className="nav-item nav-link">Logout</a>
-                                        </div>
-                                    </nav>
-                                
-                                 
-                                    <Link to="/authenticate" className="nav-item nav-link">Login Page</Link>
-                                
-                                <div className="jumbotron">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-md-6 offset-md-3">
-                                                <Route path="/authenticate" component={LoginPage} />
-                                                <Route path="/usersboard" component={UsersBoard} />
-                                                <Route path="/candidatesboard" component={CandidatesBoard} />
-                                                <Route path="/adduser" component={AddUser} />
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div className="col-md-6 offset-md-3">
+                                    <Route path="/authenticate" component={LoginPage} />
+                                    <PrivateRoute exact path="/usersboard" component={UsersBoard} />
+                                    <PrivateRoute exact path="/candidatesboard" component={CandidatesBoard} />
+                                    <PrivateRoute exact path="/adduser" component={AddUser} />
                                 </div>
                             </div>
                         </Router>

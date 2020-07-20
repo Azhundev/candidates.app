@@ -1,6 +1,5 @@
 package com.onetree.candidates.service;
 
-import com.onetree.candidates.model.User;
 import com.onetree.candidates.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -9,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                         AuthorityUtils.createAuthorityList(
                                 u.getRoles()
                                         .stream()
-                                        .map(r -> "ROLE" + r.getName().toUpperCase())
+                                        .map(r -> "ROLE_" + r.getName().toUpperCase())
                                         .collect(Collectors.toList())
                                         .toArray(new String[]{}))))
                 .orElseThrow(() -> new UsernameNotFoundException("No user with "

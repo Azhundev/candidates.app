@@ -2,6 +2,7 @@ package com.onetree.candidates.controller;
 
 import com.onetree.candidates.model.AuthenticationRequest;
 import com.onetree.candidates.model.AuthenticationResponse;
+import com.onetree.candidates.model.Role;
 import com.onetree.candidates.service.CustomUserDetailsService;
 import com.onetree.candidates.service.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
@@ -21,7 +26,7 @@ public class TokenController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private CustomUserDetailsService userDetailsService;
+    private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private JwtUtil jwtTokenUtil;
@@ -38,12 +43,12 @@ public class TokenController {
         catch (BadCredentialsException e) {
             throw new Exception("Incorrect email or password", e);
         }
-        final UserDetails userDetails = userDetailsService
+        final UserDetails userDetails = customUserDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new AuthenticationResponse(token));
+        return ResponseEntity.ok(new AuthenticationResponse(token, userDetails.getUsername(), userDetails.getAuthorities()));
 
     }
 }

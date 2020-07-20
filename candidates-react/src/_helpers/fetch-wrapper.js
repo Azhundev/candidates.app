@@ -7,7 +7,7 @@ export const fetchWrapper = {
     post,
     put,
     delete: _delete,
-    
+
 };
 
 function login(url, body) {
@@ -30,12 +30,12 @@ function login(url, body) {
 
 function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');   
+    localStorage.removeItem('user');
 }
 
 function get(url) {
     const requestOptions = {
-        method: 'GET',        
+        method: 'GET',
         headers: authHeader()
     };
     return fetch(url, requestOptions).then(handleResponse);
@@ -43,7 +43,7 @@ function get(url) {
 
 function post(url, body) {
     const requestOptions = {
-        method: 'POST',        
+        method: 'POST',
         headers: {
             ...authHeader(),
             'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ function post(url, body) {
 
 function put(url, body) {
     const requestOptions = {
-        method: 'PUT',        
+        method: 'PUT',
         headers: {
             ...authHeader(),
             'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ function put(url, body) {
 // prefixed with underscored because delete is a reserved word in javascript
 function _delete(url) {
     const requestOptions = {
-        method: 'DELETE',        
+        method: 'DELETE',
         headers: authHeader()
     };
     return fetch(url, requestOptions).then(handleResponse);
