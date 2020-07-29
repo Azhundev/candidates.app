@@ -15,6 +15,19 @@ export function user(state = {}, action) {
         error: action.error
       };
 
+    case userConstants.ADD_AVATAR_REQUEST:
+      return {
+        uploading: true
+      };
+    case userConstants.ADD_AVATAR_SUCCESS:
+      return {
+        items: action.avatar
+      };
+    case userConstants.ADD_AVATAR_FAILURE:
+      return {
+        error: action.error
+      };
+
     case userConstants.UPDATE_CANDIDATE_REQUEST:
       return {
         loading: true

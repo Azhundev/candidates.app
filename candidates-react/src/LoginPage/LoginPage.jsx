@@ -37,6 +37,7 @@ class LoginPage extends React.Component {
     }
 
     render() {
+        const {loggingIn} = this.props;
         const { username, password, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
@@ -61,7 +62,10 @@ class LoginPage extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn btn-primary">
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                        Login
+                        </button>
                     </div>
                 </form>
             </div>

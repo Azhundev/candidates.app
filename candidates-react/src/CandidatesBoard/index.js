@@ -1,2 +1,2 @@
-export * from './AddEditCandidate';
+export * from './AddCandidate';
 export * from './CandidatesBoard';

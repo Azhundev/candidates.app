@@ -10,7 +10,8 @@ export const userActions = {
     updateCandidate,
     deleteCandidate,
     getCandidate,
-    getAllCandidates
+    getAllCandidates,
+    addAvatar
 };
 
 function login(username, password) {
@@ -59,6 +60,28 @@ function addCandidate(candidate) {
         function request(candidate) { return { type: userConstants.ADD_CANDIDATE_REQUEST, candidate } }
         function success(candidate) { return { type: userConstants.ADD_CANDIDATE_SUCCESS, candidate } }
         function failure(error) { return { type: userConstants.ADD_CANDIDATE_FAILURE, error } }
+    }
+}
+
+function addAvatar(avatar) {
+    return dispatch => {
+        dispatch(request(avatar));
+
+        userService.uploadAvatar(avatar)
+            .then(
+                user => {
+                    dispatch(success());
+                    history.push('/');
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error));
+                }
+            );
+
+        function request(avatar) { return { type: userConstants.ADD_AVATAR_REQUEST, avatar } }
+        function success(avatar) { return { type: userConstants.ADD_AVATAR_SUCCESS, avatar } }
+        function failure(error) { return { type: userConstants.ADD_AVATAR_FAILURE, error } }
     }
 }
 

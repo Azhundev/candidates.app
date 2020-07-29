@@ -21,11 +21,11 @@ class AddUser extends React.Component {
     }
 
 
-    onChange(e) {
+    onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    onSubmit(e) {
+    onSubmit = (e) =>{
         e.preventDefault();
 
         this.setState({ submitted: true });
@@ -42,6 +42,7 @@ class AddUser extends React.Component {
     }
 
     render() {
+        const {adding} = this.props;
         const { username, password, roles, submitted } = this.state;
         return (
             <div className="col-lg-8 offset-lg-2">
@@ -74,7 +75,7 @@ class AddUser extends React.Component {
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">
-                            <span className="spinner-border spinner-border-sm mr-1"></span>
+                            {adding && <span className="spinner-border spinner-border-sm mr-1"></span>}
                             Add
                     </button>
                         <Link to="/authenticate" className="btn btn-link">Cancel</Link>

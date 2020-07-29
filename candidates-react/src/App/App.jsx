@@ -6,8 +6,9 @@ import { history, fetchWrapper } from '../_helpers';
 import { PrivateRoute } from '../_components';
 import { UsersBoard, AddUser } from '../AdminBoard';
 import { LoginPage } from '../LoginPage';
-import { CandidatesBoard } from '../CandidatesBoard';
+import { CandidatesBoard, AddCandidate } from '../CandidatesBoard';
 import { alertActions } from '../_actions';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
     constructor(props) {
@@ -41,9 +42,10 @@ class App extends React.Component {
                             <div>
                                 <div className="col-md-6 offset-md-3">
                                     <Route path="/authenticate" component={LoginPage} />
+                                    <PrivateRoute exact path="/adduser" component={AddUser} />
                                     <PrivateRoute exact path="/usersboard" component={UsersBoard} />
                                     <PrivateRoute exact path="/candidatesboard" component={CandidatesBoard} />
-                                    <PrivateRoute exact path="/adduser" component={AddUser} />
+                                    <PrivateRoute exact path="/addcandidate" component={AddCandidate} />
                                 </div>
                             </div>
                         </Router>

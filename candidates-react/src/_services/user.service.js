@@ -9,7 +9,8 @@ export const userService = {
     updateCandidate,
     deleteCandidate,
     getCandidate,
-    getAllCandidates
+    getAllCandidates,
+    uploadAvatar
 };
 
 function login(params) {
@@ -38,5 +39,9 @@ function getCandidate(id) {
 
 function getAllCandidates() {
     return fetchWrapper.get(`${baseUrl}/api/board/all`);
+}
+
+function uploadAvatar(params) {
+    return fetchWrapper.postAvatar(`${baseUrl}/api/avatar`, params)
 }
 

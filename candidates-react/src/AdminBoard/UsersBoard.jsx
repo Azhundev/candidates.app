@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
 import { adminActions } from '../_actions';
 
 class UsersBoard extends React.Component {
@@ -24,7 +23,7 @@ class UsersBoard extends React.Component {
                     <ul>
                         {admin.items.map((user, index) =>
                             <li key={user.id}>
-                                {user.username + ' ' + user.roles.name}
+                                {user.username + ' ' + user.roles[0].name}
                             </li>
                         )}
                     </ul>

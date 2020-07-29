@@ -5,9 +5,10 @@ export const fetchWrapper = {
     logout,
     get,
     post,
+    postAvatar,
     put,
-    delete: _delete,
-
+    delete: _delete
+    
 };
 
 function login(url, body) {
@@ -50,6 +51,17 @@ function post(url, body) {
         },
         body: JSON.stringify(body)
     };
+    return fetch(url, requestOptions).then(handleResponse);
+}
+
+function postAvatar(url, body) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            ...authHeader()            
+        },
+        body: body
+    }; 
     return fetch(url, requestOptions).then(handleResponse);
 }
 
