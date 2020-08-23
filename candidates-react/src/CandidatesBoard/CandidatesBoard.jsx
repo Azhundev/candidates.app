@@ -13,7 +13,7 @@ class CandidatesBoard extends Component {
 
         return (
             <div className="col-md-6 col-md-offset-3">
-                {user.loading && <em>Loading users...</em>}
+                {user.loading && <em>Loading candidates...</em>}
                 {user.error && <span className="text-danger">ERRR: {user.error}</span>}
                 {user.items &&
                     <ul>

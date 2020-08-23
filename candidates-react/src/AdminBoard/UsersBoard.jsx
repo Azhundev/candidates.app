@@ -11,12 +11,10 @@ class UsersBoard extends React.Component {
     }
 
     render() {
-        const { user, admin } = this.props;
+        const { admin } = this.props;
 
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h1>Hi {user.username}!</h1>
-                <h3>Users from secure api end point:</h3>
+            <div className="col-md-6 col-md-offset-3">                
                 {admin.isFetching && <em>Loading users...</em>}
                 {admin.error && <span className="text-danger">ERRR: {admin.error}</span>}
                 {admin.items &&

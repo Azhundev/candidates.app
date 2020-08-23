@@ -25,14 +25,13 @@ class AddCandidate extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.setState({ submitted: true });
-        var today = new Date();
+        this.setState({ submitted: true });        
 
         const newCandidate = {
             name: this.state.name,
             surname: this.state.surname,
             yearsOfExp: this.state.yearsOfExp,
-            dateOfApp: today.getFullYear() + '_' + (today.getMonth() + 1) + '_' + today.getDate(),
+            dateOfApp: Date.now,
             position: this.state.position,
             avatar: this.state.selectedFile.files.items(0).name
         };

@@ -3,7 +3,7 @@ import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history, fetchWrapper } from '../_helpers';
-import { PrivateRoute } from '../_components';
+import { PrivateRoute, Nav } from '../_components';
 import { UsersBoard, AddUser } from '../AdminBoard';
 import { LoginPage } from '../LoginPage';
 import { CandidatesBoard, AddCandidate } from '../CandidatesBoard';
@@ -33,12 +33,13 @@ class App extends React.Component {
         return (
             <div className="jumbotron">
                 <div className="container">
-                    <div className="col-sm-8 col-sm-offset-2">
+                    <div className="col-sm-8 col-sm-offset-2">                   
 
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
                         <Router history={history}>
+                        <Nav />
                             <div>
                                 <div className="col-md-6 offset-md-3">
                                     <Route path="/authenticate" component={LoginPage} />
